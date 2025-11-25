@@ -47,6 +47,8 @@ services:
     container_name: nginx_proxy
     ports:
       - "80:80"
+    volumes:
+    - ./frontend/build:/usr/share/nginx/html
     depends_on:
       - frontend
     networks:
