@@ -4,7 +4,8 @@ function App() {
   const [response, setResponse] = useState("");
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_API_URL || "http://backend:5000")
+    const apiUrl = process.env.REACT_APP_API_URL || "http://backend:5000";
+      fetch(`${apiUrl}/api`)
       .then(res => res.json())
       .then(data => setResponse(data.message))
       .catch(err => setResponse("Error connecting to backend."));
